@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script>
+// 思路：获取没重复的最右一值放入新数组 
+function unique(array) {
+	var _arr = [];
+	for (var i = 0, l = array.length; i < l; i++) {
+		for (var j = i + 1; j < l; j++)
+			if (array[i] === array[j]) {
+				j = ++i;
+			}
+		_arr.push(array[i]);
+	}
+	return _arr;
+}
+// 思路: 将数组一个个放入新数组判断,如果新数组不存在这个数就push;
+function unique2(array) {
+	var _arr = [];
+	for (var i = 0; i < array.length; i++) {
+		if (_arr.indexOf(array[i]) === -1) {
+			_arr.push(array[i]);
+		}
+	}
+	return _arr;
+}
+var arr = [1, 1, 4,4,3,35,54,36,46,546,54,654,645,45,,45,4,54,54,54,5,45,45,42, 1, 1, 5, 5, 5, 1, 5, 6, 4, 7, 8, 8, 4, 2, 1, 9, , , ,, , ,];
+
+
+alert(unique(arr).length)
+alert(unique2(arr).length)
+</script>
+
+</body>
+</html>
